@@ -22,11 +22,12 @@ async def setup_cpython_repo():
             f"git remote add upstream https://{os.environ.get('GH_AUTH')}:x-oauth-basic@github.com/python/cpython.git".split()
         )
         print("Finished setting up CPython Repo")
+        print(os.listdir("./cpython"))
     else:
         print("cpython directory already exists")
 
 async def main():
-    scheduler = await aiojobs.create_scheduler()
+    scheduler = await aiojobs.create_scheduler(limit=1)
     await scheduler.spawn(setup_cpython_repo())
 
     # gracefully close spawned jobs

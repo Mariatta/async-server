@@ -22,7 +22,7 @@ async def setup_cpython_repo():
             f"git remote add upstream https://{os.environ.get('GH_AUTH')}:x-oauth-basic@github.com/python/cpython.git".split()
         )
         print("Finished setting up CPython Repo")
-        print(os.listdir("./cpython"))
+        print(os.listdir("../cpython"))
     else:
         print("cpython directory already exists")
 

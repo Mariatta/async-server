@@ -26,7 +26,8 @@ async def main(request):
         gh = gh_aiohttp.GitHubAPI(session, "mariatta",
                                   oauth_token=oauth_token)
         await router.dispatch(event, gh)
-    return web.Response(status=200)
+    print("done")
+    #return web.Response(status=200)
 
 if __name__ == "__main__":
     app = web.Application()
